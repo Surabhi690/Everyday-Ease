@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EverydayEase</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mediaqueries.css">
+    <script src="script.js"></script>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header input {
+            width: 80%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        nav {
+            background: #ffffff;
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            margin: 0 15px;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #616bff;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .banner {
+            background: url('https://raw.githubusercontent.com/Surabhi690/intel-project/main/img for front.jpg') no-repeat center center;
+            background-size: cover;
+            height: 600px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            text-shadow: 2px 2px 4px #000;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .service-categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .category {
+            background: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            flex: 1 1 30%;
+            max-width: 30%;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .category img {
+            max-width: 100px;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .subcategories {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .subcategory {
+            background: #ffffff;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 5px;
+            text-align: center;
+            flex: 1 1 30%;
+            max-width: 30%;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subcategory:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .subcategory img {
+            max-width: 50px;
+            margin-bottom: 5px;
+        }
+
+        .subcategory span {
+            display: block;
+            margin-top: 5px;
+        }
+
+        .reviews-section {
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .reviews-section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: #333;
+        }
+        .carousel {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .carousel .review {
+            flex: 0 0 100%;
+            max-width: 100%;
+            transition: transform 0.5s ease-in-out;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .reviews {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .review {
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            flex: 1 1 45%;
+            max-width: 45%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            color: #333;
+        }
+
+        .review:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .review img {
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .review p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .review .user {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .review .location {
+            font-size: 14px;
+            color: #777;
+        }
+        .faq-section {
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .faq-section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: #333;
+        }
+        .faq {
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .faq-question {
+            background: #007bff;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .faq-question:hover {
+            background: #0056b3;
+        }
+
+        .faq-answer {
+            background: #f1f1f1;
+            padding: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+        
+        @media (max-width: 600px) {
+            .category {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+
+            .subcategory {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+
+            header input {
+                width: 100%;
+            }
+
+            .review {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>EverydayEase</h1>
+        <input type="text" id="search" placeholder="Search services...">
+    </header>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Partners</a>
+        <a href="#">Resources</a>
+        <a href="#">Services</a>
+        <a href="#">Media</a>
+        <a href="#">Contact Us</a>
+    </nav>
+    <div class="container">
+        <div class="banner">
+        </div>
+        
+        <div class="reviews-section">
+            <h2>User Reviews</h2>
+            <div class="carousel">
+                <button class="prev" onclick="changeReview(-1)">&#10094;</button>
+                <div class="reviews">
+                    <div class="review">
+                        <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/rahul.jpeg" alt="Rahul">
+                        <p>"EverydayEase has made my life so much easier! The food delivery service is quick and reliable. I've been using it for the past 6-7 months and it's been a game-changer."</p>
+                        <div class="user">Rahul</div>
+                        <div class="location">Mumbai</div>
+                    </div>
+                    <div class="review">
+                        <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/priya.jpeg" alt="Priya">
+                        <p>"I love the convenience of booking taxis and ordering groceries through EverydayEase. It's a one-stop solution for all my needs. Been using it for about a year now, and it never disappoints."</p>
+                        <div class="user">- Priya</div>
+                        <div class="location">Delhi</div>
+                    </div>
+                    <div class="review">
+                        <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/anil.jpeg" alt="Anil">
+                        <p>"The healthcare services are fantastic. Booking appointments and using telehealth has never been simpler. Great job! I'm a regular user and highly satisfied."</p>
+                        <div class="user">- Anil</div>
+                        <div class="location">Bangalore</div>
+                    </div>
+                </div>
+                <button class="next" onclick="changeReview(1)">&#10095;</button>
+            </div>
+        </div>
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq">
+                <div class="faq-question">What services does EverydayEase offer?</div>
+                <div class="faq-answer">EverydayEase offers a variety of services including food delivery, cleaning, and handyman services to make your daily life easier.</div>
+            </div>
+            <div class="faq">
+                <div class="faq-question">How can I book a service?</div>
+                <div class="faq-answer">You can book a service through our website by selecting the desired service, filling out the necessary details, and confirming your booking.</div>
+            </div>
+            <div class="faq">
+                <div class="faq-question">What are your service areas?</div>
+                <div class="faq-answer">We currently offer services in major cities across the United States. Check our website for a complete list of service areas.</div>
+            </div>
+            <div class="faq">
+                <div class="faq-question">What payment methods do you accept?</div>
+                <div class="faq-answer">We accept various payment methods including credit/debit cards, PayPal, and other online payment options.</div>
+            </div>
+        </div>
+    </div>
+        
+        <div class="service-categories">
+            <div class="category">
+                <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/grocery.png" alt="grocery">
+                <h3>Food Delivery & Grocery Shopping</h3>
+                <div class="subcategories">
+                    <div class="subcategory">
+                        <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/order food icon.png" alt="Order Food">
+                        <span>Order Food</span>
+                    </div>
+                    <div class="subcategory">
+                        <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/order groceries.jpg" alt="Order Groceries">
+                        <span>Order Groceries</span>
+                    </div>
+                    <div class="subcategory">
+                        <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/delivery tracking.jpg" alt="Delivery Tracking">
+                        <span>Delivery Tracking</span>
+                    </div>
+                </div>
+            </div>
+            <div class="category">
+                <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/transportation.jpeg" alt="transportation">
+                <h3>Transportation</h3>
+                <div class="subcategories">
+                    <div class="subcategory">
+                        <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/book taxi.jpg" alt="Book Taxi">
+                        <span>Book Taxi</span>
+                    </div>
+                    <div class="subcategory">
+                        <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/ride share.jpg" alt="Ride Sharing">
+                        <span>Ride Sharing</span>
+                    </div>
+                    <div class="subcategory">
+                        <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/public transport.jpg" alt="Public Transport">
+                        <span>Public Transport</span>
+                    </div>
+                </div>
+            </div>
+            <div class="category">
+                <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/download.jpeg" alt="Healthcare">
+                <h3>Healthcare</h3>
+                <div class="subcategories">
+                    <div class="subcategory">
+                        <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/doc appointment.jpg" alt="Book Appointment">
+                        <span>Book Appointment</span>
+                    </div>
+                    <div class="subcategory">
+                        <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/pharmacy icon.jpg" alt="Pharmacy">
+                        <span>Pharmacy</span>
+                    </div>
+                    <div class="subcategory">
+                        <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/tele health.jpg" alt="Telehealth">
+                        <span>Telehealth</span>
+                    </div>
+                </div>
+            </div>
+            <div class="category">
+                <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/utilities.png" alt="utilities">
+                <h3>Utilities</h3>
+                <div class="subcategories">
+                    <div class="subcategory">
+                        <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/electricity bill payment.jpg" alt="Pay Electricity">
+                        <span>Pay Electricity</span>
+                    </div>
+                    <div class="subcategory">
+                        <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/water bill.jpg" alt="Pay Water">
+                        <span>Pay Water</span>
+                    </div>
+                    <div class="subcategory">
+                        <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/internet bill.jpg" alt="Pay Internet">
+                        <span>Pay Internet</span>
+                    </div>
+                </div>
+            </div>
+            <div class="category">
+                <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/financial services.jpeg" alt="Financial Services">
+                <h3>Financial Services</h3>
+                <div class="subcategories">
+                    <div class="subcategory">
+                        <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/banking.jpg" alt="Banking">
+                        <span>Banking</span>
+                    </div>
+                    <div class="subcategory">
+                        <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/budgeting .jpg" alt="Budgeting Tools">
+                        <span>Budgeting Tools</span>
+                    </div>
+                    <div class="subcategory">
+                        <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/budget planning.jpg" alt="Financial Planning">
+                        <span>Financial Planning</span>
+                    </div>
+                </div>
+            </div>
+            <div class="category">
+                <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/entertainment.jpeg" alt="Entertainment">
+                <h3>Entertainment</h3>
+                <div class="subcategories">
+                    <div class="subcategory">
+                        <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/streaming.jpeg" alt="Streaming">
+                        <span>Streaming</span>
+                    </div>
+                    <div class="subcategory">
+                        <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/event booking.png" alt="Event Booking">
+                        <span>Event Booking</span>
+                    </div>
+                    <div class="subcategory">
+                        <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/movies.jpg" alt="Movies">
+                        <span>Movies</span>
+                    </div>
+                </div>
+            </div>
+            <div class="category">
+                <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/communication.jpeg" alt="Communication">
+                <h3>Communication</h3>
+                <div class="subcategories">
+                    <div class="subcategory">
+                        <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/messaging.png" alt="Messaging">
+                        <span>Messaging</span>
+                    </div>
+                    <div class="subcategory">
+                        <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/vc.png" alt="Video Calling">
+                        <span>Video Calling</span>
+                    </div>
+                </div>
+            </div>
+            <div class="category">
+                <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/user account management.jpeg" alt="User Account Management">
+                <h3>User Account Management</h3>
+                <div class="subcategories">
+                    <div class="subcategory">
+                        <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/profile.png" alt="Profile">
+                        <span>Profile</span>
+                    </div>
+                    <div class="subcategory">
+                        <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/history.png" alt="History">
+                        <span>History</span>
+                    </div>
+                    <div class="subcategory">
+                        <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/settings.png" alt="Settings">
+                        <span>Settings</span>
+                    </div>
+                </div>
+            </div>
+            <div class="category">
+                <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/notifications n alerts.png" alt="Notifications and Alerts">
+                <h3>Notifications and Alerts</h3>
+                <div class="subcategories">
+                    <div class="subcategory">
+                        <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/order status.png" alt="Order Status">
+                        <span>Order Status</span>
+                    </div>
+                    <div class="subcategory">
+                        <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/bill payment.jpg" alt="Bill Alerts">
+                        <span>Bill Alerts</span>
+                    </div>
+                    <div class="subcategory">
+                        <img src="https://raw.githubusercontent.com/Surabhi690/intel-project/main/appointment reminder.jpg" alt="Appointment Reminders">
+                        <span>Appointment Reminders</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 EverydayEase</p>
+        <p>Contact Information | Privacy Policy | Terms of Service</p>
+    </footer>
+    <script>
+        let currentIndex = 0;
+        const reviews = document.querySelectorAll('.review');
+
+        function changeReview(n) {
+            reviews[currentIndex].style.display = 'none';
+            currentIndex = (currentIndex + n + reviews.length) % reviews.length;
+            reviews[currentIndex].style.display = 'flex';
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            reviews.forEach((review, index) => {
+                if (index !== currentIndex) {
+                    review.style.display = 'none';
+                }
+            });
+
+            document.querySelectorAll('.faq-question').forEach((question) => {
+                question.addEventListener('click', () => {
+                    const answer = question.nextElementSibling;
+                    answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
